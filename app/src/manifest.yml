@@ -1,0 +1,68 @@
+#version identifier
+manifest_version: 1
+
+version:
+  name: V1
+  label: Version One
+  comment: The first version of the application
+
+#artifacts that are distributed from this version of the package
+artifacts:
+  setup_script: scripts/setup.sql
+  default_streamlit: app_instance_schema.streamlit
+  extension_code: true
+
+#runtime configuration for this version
+configuration:
+  log_level: debug
+  trace_level: off
+
+references:
+  - order_table:
+      label: "Orders Table" 
+      description: "Select table"
+      privileges:
+        - SELECT
+      object_type: Table 
+      multi_valued: false 
+      register_callback: app_instance_schema.update_reference 
+  - site_recovery_table:
+      label: "Site Recovery Table" 
+      description: "Select table"
+      privileges:
+        - SELECT
+      object_type: Table 
+      multi_valued: false 
+      register_callback: app_instance_schema.update_reference
+  - sharethis_table:
+      label: "ShareThis Table" 
+      description: "Select table"
+      privileges:
+        - SELECT
+      object_type: Table 
+      multi_valued: false 
+      register_callback: app_instance_schema.update_reference
+  - client_table:
+      label: "Client Table" 
+      description: "Select table"
+      privileges:
+        - SELECT
+      object_type: Table 
+      multi_valued: false 
+      register_callback: app_instance_schema.update_reference
+  # - sharethis_database:
+  #     label: "ShareThis Database" 
+  #     description: "Database from ShareThis"
+  #     privileges:
+  #       - SELECT
+  #     object_type: Database 
+  #     multi_valued: false 
+  #     register_callback: app_instance_schema.update_reference 
+  # - client_database:
+  #     label: "Client Database" 
+  #     description: "Database from Client"
+  #     privileges:
+  #       - SELECT
+  #     object_type: Database 
+  #     multi_valued: false 
+  #     register_callback: app_instance_schema.update_reference
