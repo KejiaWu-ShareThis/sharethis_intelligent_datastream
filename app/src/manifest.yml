@@ -18,22 +18,6 @@ configuration:
   trace_level: off
 
 references:
-  - order_table:
-      label: "Orders Table" 
-      description: "Select table"
-      privileges:
-        - SELECT
-      object_type: Table 
-      multi_valued: false 
-      register_callback: app_instance_schema.update_reference 
-  - site_recovery_table:
-      label: "Site Recovery Table" 
-      description: "Select table"
-      privileges:
-        - SELECT
-      object_type: Table 
-      multi_valued: false 
-      register_callback: app_instance_schema.update_reference
   - sharethis_table:
       label: "ShareThis Table" 
       description: "Select table"
@@ -50,19 +34,3 @@ references:
       object_type: Table 
       multi_valued: false 
       register_callback: app_instance_schema.update_reference
-  # - sharethis_database:
-  #     label: "ShareThis Database" 
-  #     description: "Database from ShareThis"
-  #     privileges:
-  #       - SELECT
-  #     object_type: Database 
-  #     multi_valued: false 
-  #     register_callback: app_instance_schema.update_reference 
-  # - client_database:
-  #     label: "Client Database" 
-  #     description: "Database from Client"
-  #     privileges:
-  #       - SELECT
-  #     object_type: Database 
-  #     multi_valued: false 
-  #     register_callback: app_instance_schema.update_reference
